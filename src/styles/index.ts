@@ -1,2 +1,3 @@
+import '@unocss/reset/tailwind.css'
+import 'uno.css'
 import './main.css'
-import 'virtual:windi.css'

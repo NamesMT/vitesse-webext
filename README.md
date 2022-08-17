@@ -16,7 +16,7 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
 - ⚡️ **Instant HMR** - use **Vite** on dev (no more refresh!)
 - 🥝 Vue 3 - Composition API, [`<script setup>` syntax](https://github.com/vuejs/rfcs/blob/master/active-rfcs/0040-script-setup.md) and more!
 - 💬 Effortless communications - powered by [`webext-bridge`](https://github.com/antfu/webext-bridge) and [VueUse](https://github.com/antfu/vueuse) storage
-- 🍃 [Windi CSS](https://windicss.org/) - on-demand CSS utilities
+- 🍃 [UnoCSS](https://github.com/unocss/unocss) - The instant on-demand Atomic CSS engine
 - 🦾 [TypeScript](https://www.typescriptlang.org/) - type safe
 - 📦 [Components auto importing](./src/components)
 - 🌟 [Icons](./src/components) - Access to icons from any iconset directly
@@ -37,7 +37,6 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
 - [`unplugin-vue-components`](https://github.com/antfu/vite-plugin-components) - components auto import
 - [`unplugin-icons`](https://github.com/antfu/unplugin-icons) - icons as components
   - [Iconify](https://iconify.design) - use icons from any icon sets [🔍Icônes](https://icones.netlify.app/)
-- [`vite-plugin-windicss`](https://github.com/antfu/vite-plugin-windicss) - WindiCSS support
 
 ### Vue Plugins
 
@@ -45,7 +44,7 @@ A [Vite](https://vitejs.dev/) powered WebExtension ([Chrome](https://developer.c
 
 ### UI Frameworks
 
-- [Windi CSS](https://github.com/windicss/windicss) - next generation utility-first CSS framework
+- [UnoCSS](https://uno.antfu.me/) - The instant on-demand Atomic CSS engine
 
 ### Coding Style
 
@@ -94,6 +93,8 @@ pnpm i
 - `scripts` - development and bundling helper scripts.
 
 ### Development
+
+You should patch any "`__uno`" string found inside the `unocss` package, using `patch-package` or pnpm's native patch, since uno dev file is exported as __uno.css.js, which is not compatible with chrome extension's specification (doesn't allow files/folders starts with _)
 
 ```bash
 pnpm dev

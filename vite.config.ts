@@ -8,8 +8,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import WindiCSS from 'vite-plugin-windicss'
-import windiConfig from './windi.config'
+import UnoCSS from 'unocss/vite'
 import { isDev, port, r } from './scripts/utils'
 import { MV3Hmr } from './vite-mv3-hmr'
 
@@ -50,6 +49,10 @@ export const sharedConfig: UserConfig = {
         }),
       ],
     }),
+
+    // https://github.com/antfu/unocss
+    // see unocss.config.ts for config
+    UnoCSS(),
 
     // https://github.com/antfu/unplugin-icons
     Icons(),
@@ -102,11 +105,6 @@ export default defineConfig(({ command }) => ({
   },
   plugins: [
     ...sharedConfig.plugins!,
-
-    // https://github.com/antfu/vite-plugin-windicss
-    WindiCSS({
-      config: windiConfig,
-    }),
 
     MV3Hmr(),
   ],
